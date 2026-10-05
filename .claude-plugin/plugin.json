@@ -1,0 +1,24 @@
+{
+  "name": "mobile-app-skill",
+  "displayName": "Mobile App Skill",
+  "version": "1.0.0",
+  "description": "Build a mobile app, check it before submission, and ship it to the App Store and Google Play. Unofficial; not affiliated with Apple, Google, Rork or Expo.",
+  "author": {
+    "name": "Deon Menezes",
+    "url": "https://github.com/deonmenezes"
+  },
+  "homepage": "https://github.com/deonmenezes/mobile-app-skill",
+  "repository": "https://github.com/deonmenezes/mobile-app-skill",
+  "license": "MIT",
+  "keywords": [
+    "mobile",
+    "ios",
+    "android",
+    "expo",
+    "react-native",
+    "swiftui",
+    "app-store",
+    "google-play",
+    "testflight"
+  ]
+}

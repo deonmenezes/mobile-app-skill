@@ -1,0 +1,61 @@
+mobile-app-skill
+Copyright (c) 2026 Deon Menezes
+
+This repository bundles third-party agent skills alongside Deon Menezes' own
+files. Deon's own files are MIT licensed (see LICENSE). Each bundled skill
+remains under its upstream licence, reproduced verbatim in
+THIRD_PARTY_LICENSES/. CREDITS.md maps every bundled skill folder to its
+upstream repository, creator, licence and pinned commit.
+
+-------------------------------------------------------------------------------
+Apache License 2.0 components
+-------------------------------------------------------------------------------
+
+1. android/skills
+   https://github.com/android/skills
+   Author: Google LLC
+   Commit: 42dc2270e96032bd860bb94511e440aa00a43125
+   Licence: THIRD_PARTY_LICENSES/android-skills/LICENSE.txt
+   Folders copied into skills/:
+     edge-to-edge                            (upstream: system/edge-to-edge)
+     migrate-xml-views-to-jetpack-compose    (upstream: jetpack-compose/migration/migrate-xml-views-to-jetpack-compose)
+     navigation-3                            (upstream: navigation/navigation-3)
+     play-billing-library-version-upgrade    (upstream: play/play-billing-library-version-upgrade)
+     play-policy-insights                    (upstream: play/play-policy-insights)
+     r8-analyzer                             (upstream: performance/r8-analyzer)
+     testing-setup                           (upstream: testing/testing-setup)
+   Changes made: none. The files are byte-for-byte copies. The only difference
+   from upstream is the location of each folder (flattened to skills/<name>/).
+   Upstream ships no NOTICE file.
+
+2. rorkai/rork-local
+   https://github.com/rorkai/rork-local
+   Copyright 2026 Rork
+   Commit: dcde3475e9ddb0f5b02bb9c32a581ce725e0312b
+   Licence: THIRD_PARTY_LICENSES/rorkai-rork-local/LICENSE
+   Folder copied into skills/:
+     rork-local                              (upstream: skills/rork-local)
+   Changes made: none. The files are byte-for-byte copies.
+   Upstream ships no NOTICE file.
+
+-------------------------------------------------------------------------------
+MIT components
+-------------------------------------------------------------------------------
+
+Skills copied unmodified from the following repositories, each under the MIT
+licence reproduced in THIRD_PARTY_LICENSES/:
+
+  rorkai/app-store-connect-cli-skills   Copyright (c) 2026 Rudrank Riyam
+  tamtom/gplay-cli-skills               Copyright (c) 2025
+  expo/skills                           Copyright (c) 2025-present 650 Industries, Inc. (aka Expo)
+  callstackincubator/agent-skills       Copyright (c) 2026 Callstack Incubator
+  AvdLee/SwiftUI-Agent-Skill            Copyright (c) 2026 Antoine van der Lee
+  Dimillian/Skills                      Copyright (c) 2026 Thomas Ricouard
+  twostraws/SwiftUI-Agent-Skill         Copyright (c) 2026 Paul Hudson
+
+-------------------------------------------------------------------------------
+
+This project is unofficial. It is not affiliated with, endorsed by, or
+sponsored by Apple, Google, Rork, Expo, Callstack, or any person or
+organisation credited above. Product names are used only to identify the
+tools and stores the skills work with.

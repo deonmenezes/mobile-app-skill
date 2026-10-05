@@ -1,0 +1,16 @@
+{
+  "name": "deonmenezes",
+  "description": "Deon Menezes' skill packs for Claude Code.",
+  "owner": {
+    "name": "Deon Menezes",
+    "url": "https://github.com/deonmenezes"
+  },
+  "plugins": [
+    {
+      "name": "mobile-app-skill",
+      "source": "./",
+      "description": "Build a mobile app, check it before submission, and ship it to the App Store and Google Play. Deon's orchestrator skill plus vendored skills from Rork (asc), gplay, Expo, Callstack, Google and the Swift community.",
+      "category": "development"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Vendored skills and upstream licence files are stored byte-for-byte as
+# upstream published them. Do not let git normalise their line endings.
+skills/** -text
+THIRD_PARTY_LICENSES/** -text
+
+# Deon's own skills are ordinary text.
+skills/mobile-app/** text=auto eol=lf
+skills/expedite-review/** text=auto eol=lf
