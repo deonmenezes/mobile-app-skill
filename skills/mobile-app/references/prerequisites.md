@@ -44,11 +44,11 @@ curl -fsSL https://asccli.sh/install | bash
 Windows (PowerShell):
 
 ```powershell
-# WinGet, once the package is accepted
-winget install asc
+# WinGet
+winget install --id Rorkai.ASC --exact
 ```
 
-The README adds: "Until it appears in `winget search asc`, Windows users can download the signed release binaries directly from the GitHub releases page." That page is https://github.com/rorkai/App-Store-Connect-CLI/releases/latest. Download the asset whose name ends in `_windows_amd64.exe` (for example `asc_5.10.0_windows_amd64.exe`), check it against the checksums file published in the same release (`asc_5.10.0_checksums.txt`), rename it to `asc.exe`, and put it in a folder on `PATH`.
+Use the exact id: plain `winget install asc` matches more than one package and stops. Without WinGet, the signed release binaries are at https://github.com/rorkai/App-Store-Connect-CLI/releases/latest. Download the asset whose name ends in `_windows_amd64.exe` (for example `asc_5.10.0_windows_amd64.exe`), check it against the checksums file published in the same release (`asc_5.10.0_checksums.txt`), rename it to `asc.exe`, and put it in a folder on `PATH`.
 
 Confirm it works:
 

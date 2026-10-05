@@ -13,8 +13,8 @@ This skill does three things: decides whether a request is justified, drafts it,
 - Apple: "You can request the review of your app to be expedited if you face extenuating circumstances, such as fixing a critical bug in your app or releasing your app to coincide with an event you're directly associated with." (https://developer.apple.com/distribute/app-review/)
 - The request is a form on Apple's site, behind Apple sign-in: https://developer.apple.com/contact/app-store/?topic=expedite
 - Expedites are granted at Apple's discretion. Rork's review guide says the same: "Expedited reviews are **not guaranteed**, but they are often approved if the reason is valid." (https://docs.rork.com/appstore-submission-checklist/app-review-guide)
-- No CLI or skill can file the request. `asc` has no expedite command.
-- **Google Play has no published expedite process.** Google's own help says some reviews take "up to 7 days or longer in exceptional cases" (https://support.google.com/googleplay/android-developer/answer/9859751). See "Google Play" below for what can be done instead.
+- No CLI or skill in this pack can file the request. `asc` has no expedite command.
+- **Google publishes no expedite process on the pages checked.** Google's own help says some reviews take "up to 7 days or longer in exceptional cases" (https://support.google.com/googleplay/android-developer/answer/9859751). See "Google Play" below for what can be done instead.
 
 Never tell the user a request will be granted, and never tell them how long it will take.
 
@@ -116,11 +116,11 @@ asc status --app "APP_ID" --until review-done --timeout 2h --output json
 ```
 
 - Do not cancel and resubmit to "restart" the review.
-- If the request is declined, the normal review continues. Apple says that on average 90% of submissions are reviewed in less than 24 hours.
+- Whether or not Apple grants it, keep watching the normal review. Apple says that on average 90% of submissions are reviewed in less than 24 hours.
 
 ## Google Play
 
-There is no expedite request to draft. What can be done:
+No published expedite request was found for Google Play, so there is nothing to draft. What can be done:
 
 - If a bad release is rolling out, stop it reaching more users while the fix is reviewed:
 
@@ -129,7 +129,7 @@ gplay rollout halt --package com.example.app --track production
 ```
 
 - Submit the fix normally with the `gplay-release-flow` skill and run `gplay preflight` first, so it is not delayed by something avoidable.
-- Tell the user the honest expectation: Google publishes no typical review time, and says extended reviews can take up to 7 days or longer.
+- Tell the user the honest expectation: Google states no typical review time on its review-time help page, and says extended reviews can take up to 7 days or longer.
 
 ## Report to the user
 

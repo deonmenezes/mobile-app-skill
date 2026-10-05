@@ -16,7 +16,7 @@ Nothing in this repository is affiliated with or endorsed by Apple, Google, Rork
 | Antoine van der Lee ([@AvdLee](https://github.com/AvdLee)) and Omar Elsayed | SwiftUI Expert skill | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | MIT, Copyright (c) 2026 Antoine van der Lee | 1 |
 | Thomas Ricouard ([@Dimillian](https://github.com/Dimillian)) | SwiftUI, Swift concurrency and App Store changelog skills | [Dimillian/Skills](https://github.com/Dimillian/Skills) | MIT, Copyright (c) 2026 Thomas Ricouard | 4 |
 | Paul Hudson ([@twostraws](https://github.com/twostraws)) | SwiftUI Pro skill | [twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill) | MIT, Copyright (c) 2026 Paul Hudson | 1 |
-| Google LLC ([Android](https://github.com/android)) | The official Android skills, including Play policy insights | [android/skills](https://github.com/android/skills) | Apache-2.0 | 7 |
+| Google LLC / The Android Open Source Project ([Android](https://github.com/android)) | The official Android skills, including Play policy insights | [android/skills](https://github.com/android/skills) | Apache-2.0 | 7 |
 
 Also credited by the upstreams themselves: Evan Bacon ([@EvanBacon](https://github.com/EvanBacon)), whose [serve-sim](https://github.com/EvanBacon/serve-sim) (Apache-2.0) powers the simulator stream in `rork-local`. serve-sim is not copied here.
 
@@ -67,13 +67,13 @@ Each folder under `skills/` listed here is a byte-for-byte copy of the upstream 
 | `swiftui-liquid-glass` | [Dimillian/Skills](https://github.com/Dimillian/Skills/tree/05ba982bfeb0d77d3c97d4542b0ee15034d05f84/swiftui-liquid-glass) | Thomas Ricouard (@Dimillian) | MIT | `05ba982bfeb0` |
 | `swiftui-ui-patterns` | [Dimillian/Skills](https://github.com/Dimillian/Skills/tree/05ba982bfeb0d77d3c97d4542b0ee15034d05f84/swiftui-ui-patterns) | Thomas Ricouard (@Dimillian) | MIT | `05ba982bfeb0` |
 | `swiftui-pro` | [twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill/tree/be297ff80dddec529af1f9b1f1f114aab6c9d11c/swiftui-pro) | Paul Hudson (@twostraws) | MIT | `be297ff80ddd` |
-| `edge-to-edge` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/system/edge-to-edge) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `migrate-xml-views-to-jetpack-compose` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `navigation-3` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/navigation/navigation-3) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `play-billing-library-version-upgrade` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/play/play-billing-library-version-upgrade) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `play-policy-insights` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/play/play-policy-insights) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `r8-analyzer` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/performance/r8-analyzer) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
-| `testing-setup` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/testing/testing-setup) | Google LLC (Android, @android) | Apache-2.0 | `42dc2270e960` |
+| `edge-to-edge` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/system/edge-to-edge) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `migrate-xml-views-to-jetpack-compose` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `navigation-3` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/navigation/navigation-3) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `play-billing-library-version-upgrade` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/play/play-billing-library-version-upgrade) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `play-policy-insights` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/play/play-policy-insights) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `r8-analyzer` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/performance/r8-analyzer) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
+| `testing-setup` | [android/skills](https://github.com/android/skills/tree/42dc2270e96032bd860bb94511e440aa00a43125/testing/testing-setup) | Google LLC / The Android Open Source Project (@android) | Apache-2.0 | `42dc2270e960` |
 
 Full commit hashes and licence files:
 

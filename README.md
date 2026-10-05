@@ -82,13 +82,13 @@ brew install tamtom/tap/gplay
 
 ```powershell
 # asc
-winget install asc
+winget install --id Rorkai.ASC --exact
 
 # gplay
 irm https://raw.githubusercontent.com/tamtom/play-console-cli/main/install.ps1 | iex
 ```
 
-A note on `asc` for Windows: its README says the WinGet package is still being accepted, and "Until it appears in `winget search asc`, Windows users can download the signed release binaries directly from the GitHub releases page." If `winget install asc` finds nothing, download the file ending in `_windows_amd64.exe` from the [asc releases page](https://github.com/rorkai/App-Store-Connect-CLI/releases/latest), rename it to `asc.exe`, and put it in a folder on your `PATH`.
+A note on `asc` for Windows: use the exact id above. Plain `winget install asc` matches more than one package and stops. If WinGet is not available, download the file ending in `_windows_amd64.exe` from the [asc releases page](https://github.com/rorkai/App-Store-Connect-CLI/releases/latest), rename it to `asc.exe`, and put it in a folder on your `PATH`.
 
 Without Homebrew on macOS or Linux, both tools have install scripts:
 
@@ -134,6 +134,8 @@ Check the app and submit it to the App Store and Google Play.
 ```
 
 Claude runs the pre-submission checks, shows you what it found, fixes what it can, shows you a dry run of the submission, and submits only after you say yes. Then it tells you how to check on the review.
+
+Two parts of this are yours, not Claude's: the first upload of a new Android app is a manual step in Play Console, and a new personal Play account has to finish the 12-tester, 14-day closed test before production. Both are explained under [What it cannot do](#what-it-cannot-do).
 
 ## Three ways to install
 
@@ -230,7 +232,7 @@ Read this part. It will save you a bad week.
 
 **It cannot make a review faster.** Apple: "On average, 90% of submissions are reviewed in less than 24 hours." ([Apple](https://developer.apple.com/distribute/app-review/)) Google: "Certain apps may be subject to extended reviews, which may result in review times of up to 7 days or longer in exceptional cases." ([Google](https://support.google.com/googleplay/android-developer/answer/9859751)) Rork's guide puts a first App Store submission at 24 to 72 hours and adds: "Rejections are common and expected, especially on first submissions." ([Rork docs](https://docs.rork.com/appstore-submission-checklist/app-review-guide))
 
-**It cannot expedite a review for you.** Apple accepts expedite requests in specific cases: "You can request the review of your app to be expedited if you face extenuating circumstances, such as fixing a critical bug in your app or releasing your app to coincide with an event you're directly associated with." ([Apple](https://developer.apple.com/distribute/app-review/)) You file the request yourself, signed in, at [Apple's form](https://developer.apple.com/contact/app-store/?topic=expedite). Apple decides whether to grant it. The `expedite-review` skill only helps you decide whether to ask and writes the text. Google Play has no published expedite process.
+**It cannot expedite a review for you.** Apple accepts expedite requests in specific cases: "You can request the review of your app to be expedited if you face extenuating circumstances, such as fixing a critical bug in your app or releasing your app to coincide with an event you're directly associated with." ([Apple](https://developer.apple.com/distribute/app-review/)) You file the request yourself, signed in, at [Apple's form](https://developer.apple.com/contact/app-store/?topic=expedite). Apple decides whether to grant it. The `expedite-review` skill only helps you decide whether to ask and writes the text. No published expedite process was found for Google Play.
 
 **It cannot skip Google's testing rule.** Google: "Developers with personal accounts created after November 13, 2023, must run a closed test for their app with a minimum of 12 testers who have been opted in continuously for at least 14 days." ([Google](https://support.google.com/googleplay/android-developer/answer/14151465)) A new personal account cannot go live on Google Play in a day.
 
@@ -256,15 +258,15 @@ Two skills here are Deon's: `mobile-app` and `expedite-review`. Everything else 
 | Antoine van der Lee ([@AvdLee](https://github.com/AvdLee)) and Omar Elsayed | `swiftui-expert-skill` | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) |
 | Thomas Ricouard ([@Dimillian](https://github.com/Dimillian)) | 4 Swift and App Store skills | [Dimillian/Skills](https://github.com/Dimillian/Skills) |
 | Paul Hudson ([@twostraws](https://github.com/twostraws)) | `swiftui-pro` | [twostraws/SwiftUI-Agent-Skill](https://github.com/twostraws/SwiftUI-Agent-Skill) |
-| Google (Android) | 7 Android and Play skills | [android/skills](https://github.com/android/skills) |
+| Google (Android), The Android Open Source Project | 7 Android and Play skills | [android/skills](https://github.com/android/skills) |
 | Evan Bacon ([@EvanBacon](https://github.com/EvanBacon)) | `serve-sim`, used by `rork-local` | [EvanBacon/serve-sim](https://github.com/EvanBacon/serve-sim) |
 
-Worth installing alongside this pack, linked rather than copied because they carry no licence file or are hosted products:
+Worth a look alongside this pack, linked rather than copied because they carry no licence file or are hosted products:
 
 - [Software Mansion's skills](https://github.com/software-mansion-labs/skills) for React Native animations and gestures
 - [Vercel's agent skills](https://github.com/vercel-labs/agent-skills), which include `react-native-skills`
 - [Axiom](https://github.com/CharlesWiltgen/Axiom) by Charles Wiltgen, a large set of Apple-platform skills (MIT, too big to bundle)
-- [Rork](https://rork.com), the hosted app builder, and its [AI App Store Reviewer](https://rork.com/app-store-reviewer)
+- [Rork](https://rork.com), the hosted app builder, and its paid [AI App Store Reviewer](https://rork.com/app-store-reviewer)
 
 Every vendored skill, its licence and the exact commit it was copied from are listed in [CREDITS.md](CREDITS.md). Licence texts are in [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES). If you find one of these skills useful, go and star the creator's repository.
 

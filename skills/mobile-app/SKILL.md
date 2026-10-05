@@ -230,7 +230,7 @@ asc status --app "APP_ID" --until review-done --timeout 2h --output json
 
 ### Android
 
-Read the track state with `gplay tracks get --package com.example.app --track production`. Google says some reviews take up to 7 days or longer, and it publishes no expedite process.
+Read the track state with `gplay tracks get --package com.example.app --track production`. Google says some reviews take up to 7 days or longer, and no published expedite process was found for Google Play.
 
 ## Stage 7: After approval
 
