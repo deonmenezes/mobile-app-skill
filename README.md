@@ -1,12 +1,12 @@
 # Mobile App Skill
 
-A skill pack for Claude Code that takes a mobile app from an idea to a store submission: it builds the app, checks it against the things that commonly get apps rejected, submits it to the App Store and Google Play, and watches the review. It is two skills by Deon Menezes (the `mobile-app` orchestrator and `expedite-review`) plus 48 open-source skills from the people who built the tools underneath.
+A skill pack for Claude Code that takes a mobile app from an idea to a store submission: it builds the app, checks it against the things that commonly get apps rejected, submits it to the App Store and Google Play, and watches the review. It is three skills by Deon Menezes (the `mobile-app` orchestrator, `app-store-release` and `expedite-review`) plus 48 open-source skills from the people who built the tools underneath.
 
 ```bash
 npx skills add deonmenezes/mobile-app-skill
 ```
 
-**Credit where it is due.** 48 of the 50 skills here were written by others and are copied unmodified under their own licences: [Rudrank Riyam](https://github.com/rudrankriyam) and [Rork](https://github.com/rorkai) (the `asc` CLI and its skills), [Omar Altamimi](https://github.com/tamtom) (the `gplay` CLI and its skills), [Expo](https://github.com/expo/skills), [Callstack](https://github.com/callstackincubator/agent-skills), [Antoine van der Lee](https://github.com/AvdLee/SwiftUI-Agent-Skill) and Omar Elsayed, [Thomas Ricouard](https://github.com/Dimillian/Skills), [Paul Hudson](https://github.com/twostraws/SwiftUI-Agent-Skill), and [Google's Android team](https://github.com/android/skills). Full list in [CREDITS.md](CREDITS.md).
+**Credit where it is due.** 48 of the 51 skills here were written by others and are copied unmodified under their own licences: [Rudrank Riyam](https://github.com/rudrankriyam) and [Rork](https://github.com/rorkai) (the `asc` CLI and its skills), [Omar Altamimi](https://github.com/tamtom) (the `gplay` CLI and its skills), [Expo](https://github.com/expo/skills), [Callstack](https://github.com/callstackincubator/agent-skills), [Antoine van der Lee](https://github.com/AvdLee/SwiftUI-Agent-Skill) and Omar Elsayed, [Thomas Ricouard](https://github.com/Dimillian/Skills), [Paul Hudson](https://github.com/twostraws/SwiftUI-Agent-Skill), and [Google's Android team](https://github.com/android/skills). Full list in [CREDITS.md](CREDITS.md).
 
 This is an unofficial project. It is not affiliated with or endorsed by Apple, Google, Rork, Expo or anyone credited here.
 
@@ -139,7 +139,7 @@ Two parts of this are yours, not Claude's: the first upload of a new Android app
 
 ## Three ways to install
 
-All three install the same 50 skills.
+All three install the same 51 skills.
 
 ### 1. The skills installer
 
@@ -217,6 +217,7 @@ Run before every submission.
 - iOS without a Mac, or any Expo project: cloud build and submit with EAS. Skill: `eas-app-stores`
 - Android: build the bundle, release to a testing track, promote to production with a staged rollout. Skills: `gplay-gradle-build`, `gplay-release-flow`, `gplay-testers-orchestration`, `gplay-rollout-management`, `gplay-metadata-sync`, `gplay-screenshot-automation`
 - Release notes: `app-store-changelog`, `asc-whats-new-writer`
+- Updates to an app that is already on the App Store: `app-store-release`. It is the release loop on its own, with scripts that need only Python and an API key: bump the version, build on your Mac over SSH (or on a GitHub-hosted Mac when yours is asleep), upload, submit, watch the review, and check the app is really on sale. Its first run asks a few setup questions and saves the answers, so later releases are one sentence: "ship an update".
 
 ### Watch the review
 
@@ -246,7 +247,7 @@ Read this part. It will save you a bad week.
 
 ## Credits
 
-Two skills here are Deon's: `mobile-app` and `expedite-review`. Everything else is the work of:
+Three skills here are Deon's: `mobile-app`, `app-store-release` and `expedite-review`. Everything else is the work of:
 
 | Creator | Work | Repository |
 |---|---|---|

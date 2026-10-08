@@ -1,0 +1,103 @@
+# Cloud fallback for the app-store-release skill: build, sign and upload on a GitHub-hosted Mac when your own
+# Mac is asleep. Copy to .github/workflows/ios-release.yml in the app's repository.
+#
+# It runs the same mac_release.sh a local Mac runs, with settings from .asc/release.json.
+# Repository secrets it needs (Settings > Secrets and variables > Actions):
+#   ASC_KEY_ID, ASC_ISSUER_ID   App Store Connect API key ids
+#   ASC_PRIVATE_KEY             the contents of AuthKey_XXXX.p8
+#   DIST_P12_BASE64             base64 of the Apple Distribution certificate (.p12)
+#   DIST_P12_PASSWORD           its password
+# Provisioning profiles are not stored: they are downloaded by name with the API key.
+#
+# Start it from any machine:
+#   gh workflow run ios-release.yml --ref <branch> -f mode=upload
+#   gh run watch
+#
+# Status: this workflow file has not been run end to end by its author, and neither has mac_release.sh on a
+# hosted runner. Run it once with mode=archive and read the log before you rely on it.
+# Gitignored files (API keys, GoogleService-Info.plist) are not in a CI checkout: add a step that writes them
+# from secrets. In ipa mode the signed .ipa is kept as a run artifact, readable by anyone with access to the repo.
+name: iOS release
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "upload (to App Store Connect), ipa (keep as an artifact) or archive (compile and sign only)"
+        default: upload
+        type: choice
+        options: [upload, ipa, archive]
+
+defaults:
+  run:
+    shell: bash   # bash with -e and pipefail, so a failed step in a pipeline fails the job
+
+jobs:
+  release:
+    runs-on: macos-15
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Release scripts
+        uses: actions/checkout@v4
+        with:
+          repository: deonmenezes/mobile-app-skill
+          ref: v1.1.0   # pinned: these scripts run next to your certificate and API key. Review before moving it.
+          path: .release-tools
+          sparse-checkout: skills/app-store-release/scripts
+
+      - name: Signing material
+        env:
+          DIST_P12_BASE64: ${{ secrets.DIST_P12_BASE64 }}
+          DIST_P12_PASSWORD: ${{ secrets.DIST_P12_PASSWORD }}
+          ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/signing"
+          echo "$DIST_P12_BASE64" | base64 --decode > "$RUNNER_TEMP/signing/dist.p12"
+          printf '%s' "$DIST_P12_PASSWORD" > "$RUNNER_TEMP/signing/dist.p12.password"
+          printf '%s\n' "$ASC_PRIVATE_KEY" > "$RUNNER_TEMP/signing/AuthKey.p8"
+
+      - name: Provisioning profiles
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install --quiet pyjwt cryptography
+          export ASC_PRIVATE_KEY_PATH="$RUNNER_TEMP/signing/AuthKey.p8"
+          TOOLS=.release-tools/skills/app-store-release/scripts
+          "$RUNNER_TEMP/venv/bin/python" "$TOOLS/release_config.py" profile-names | tr '\n' '\0' \
+            | xargs -0 "$RUNNER_TEMP/venv/bin/python" "$TOOLS/fetch_profiles.py" --out "$RUNNER_TEMP/profiles"
+
+      - name: Build
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          MODE: ${{ inputs.mode }}
+        run: |
+          TOOLS=.release-tools/skills/app-store-release/scripts
+          set -a
+          eval "$(python3 "$TOOLS/release_config.py" env)"
+          PROJECT_DIR="$GITHUB_WORKSPACE"
+          P12="$RUNNER_TEMP/signing/dist.p12"
+          P12_PASSWORD_FILE="$RUNNER_TEMP/signing/dist.p12.password"
+          ASC_PRIVATE_KEY_PATH="$RUNNER_TEMP/signing/AuthKey.p8"
+          PROFILE_DIR="$RUNNER_TEMP/profiles"
+          OUT_DIR="$RUNNER_TEMP/out"
+          set +a
+          bash "$TOOLS/mac_release.sh" "$MODE"
+
+      - name: Logs and IPA
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-release-${{ github.run_number }}
+          path: |
+            ${{ runner.temp }}/out/*.log
+            ${{ runner.temp }}/out/export/*.ipa
+          if-no-files-found: ignore
+
+      - name: Remove signing material
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/signing" "$RUNNER_TEMP/profiles"

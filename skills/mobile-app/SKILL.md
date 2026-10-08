@@ -150,6 +150,8 @@ These commands check that a submission is complete and that the binary is well f
 
 ## Stage 5: Ship
 
+For an app that already has code and an App Store Connect record, and for every update after the first release, load `app-store-release` instead of the steps below. It covers the same ground in more depth (version bumps, building on a Mac over SSH or on a GitHub-hosted Mac, replacing a build in review, in-app purchases, rejections, checking the app is on sale) with its own scripts, and it remembers the user's setup answers.
+
 ### iOS from a Mac
 
 Load `asc-xcode-build` to archive and export, then `asc-release-flow` to submit.
@@ -248,3 +250,4 @@ End every run with: the stack chosen and why; what was built; each check that ra
 - [references/prerequisites.md](references/prerequisites.md): accounts, costs, installing `asc` and `gplay` on macOS and Windows, authentication.
 - [references/limits.md](references/limits.md): what this cannot do, with the Apple, Google and Rork quotes and links, and the manual review pass.
 - [references/skill-map.md](references/skill-map.md): every bundled skill by stage, with its upstream.
+- The `app-store-release` skill: the iOS release loop for updates, with scripts and a list of known failures.

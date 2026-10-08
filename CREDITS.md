@@ -1,6 +1,6 @@
 # Credits
 
-This pack exists because other people wrote the hard parts and published them under open licences. Deon Menezes wrote two skills here (`mobile-app` and `expedite-review`). The other 48 are unmodified copies of skills written by the people and teams below. If one of them helps you, star the upstream repository, not just this one.
+This pack exists because other people wrote the hard parts and published them under open licences. Deon Menezes wrote three skills here (`mobile-app`, `app-store-release` and `expedite-review`). The other 48 are unmodified copies of skills written by the people and teams below. If one of them helps you, star the upstream repository, not just this one.
 
 Nothing in this repository is affiliated with or endorsed by Apple, Google, Rork, Expo, Callstack or anyone else credited here.
 

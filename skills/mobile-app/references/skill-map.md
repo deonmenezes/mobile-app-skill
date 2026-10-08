@@ -7,6 +7,7 @@ Every skill in this pack, grouped by the stage where `mobile-app` uses it. Vendo
 | Skill | Use it for |
 |---|---|
 | `mobile-app` | The whole path: intake, stack, build, check, ship, watch review |
+| `app-store-release` | Shipping an update or a first release of an existing iOS app end to end: bump, build over SSH or CI, upload, submit, watch, rejections, hotfixes. Own scripts, no `asc` CLI needed |
 | `expedite-review` | Deciding whether an Apple expedite request is justified and drafting it |
 
 ## Build: Expo and React Native

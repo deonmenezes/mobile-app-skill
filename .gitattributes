@@ -6,3 +6,4 @@ THIRD_PARTY_LICENSES/** -text
 # Deon's own skills are ordinary text.
 skills/mobile-app/** text=auto eol=lf
 skills/expedite-review/** text=auto eol=lf
+skills/app-store-release/** text=auto eol=lf
